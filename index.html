@@ -11,8 +11,8 @@
 </head>
 <body>
     <header>
-        <nav>
-            <div class="logo">
+        <nav class="w-11/12 mx-auto py-3 flex justify-between border-b">
+            <div class="logo w-[100px]">
                 <img src="assets/Logo.png" alt="logo of the website">
             </div>
             <div class="search">
@@ -35,5 +35,12 @@
             </div>
         </nav>
     </header>
+    <nav id="categories" class="py-3 flex gap-5 justify-center"></nav>
+
+    <main>
+        <section id="videos" class="w-11/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 py-10"></section>
+    </main>
+
+    <script src="script/video.js"></script>
 </body>
 </html>
