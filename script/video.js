@@ -1,5 +1,13 @@
 // console.log('Video Script Added');
 
+function getTimeString(time){
+    const hour = parseInt(time / 3600);
+    let remainingTime = time % 3600;
+    const minute = parseInt(remainingTime / 60);
+    remainingTime = remainingTime % 60;
+    return `${hour}h ${minute}m ${remainingTime}s ago`
+}
+
 const loadCategories = () => {
     // console.log('load categories function created');
     fetch('https://openapi.programming-hero.com/api/phero-tube/categories')
@@ -36,7 +44,12 @@ const displayVideos = (videos) => {
         card.innerHTML = `
             <figure class="h-[200px] relative">
                 <img class="h-full w-full object-cover" src=${video.thumbnail} alt="thumbnail" />
-                <span class="absolute right-2 bottom-2 bg-black text-white rounded p-1">${video.others.posted_date}</span>
+                
+                ${video.others.posted_date?.length === 0
+                    ? ""
+                    : `<span class="absolute right-2 bottom-2 bg-black text-white rounded p-1">${getTimeString(video.others.posted_date)}</span>`
+                 }
+
             </figure>
             <div class="px-0 py-4 flex gap-2">
                 <div>
