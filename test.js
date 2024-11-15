@@ -19,3 +19,16 @@
 // }
 
 // console.log(getTimeString(7865));
+
+// const dataArray = [];
+
+        // data.videos.forEach((item) => {
+        //     const view = item.others.views.split('K');
+        //     // console.log(view);
+        //     dataArray.push(parseFloat(view[0]));
+        //     //checking if the videos and the wanted data is being fetched properly
+        //     //console.log(item.others.views);
+        // })
+
+        // dataArray.sort( (a,b) => b-a);
+        // console.log(dataArray);

@@ -68,7 +68,29 @@ const loadDetails = async(videoId) => {
    const data = await res.json();
    displayDetails(data.video);
 
-}
+};
+
+const sortVideos = async() => {
+    try{
+        const res = await fetch(`https://openapi.programming-hero.com/api/phero-tube/videos`);
+        const data = await res.json();
+        
+        //data.videos, here videos is the array of objects we need
+        //add a new property to each object called viewsValue
+        data.videos.forEach((item) => {
+            const view = parseFloat(item.others.views.split('K')[0]);
+            item.viewsValue = view;
+            // console.log(view);
+        })
+        // console.log(data.videos); //before sorting
+        data.videos.sort((a,b) => b.viewsValue - a.viewsValue);
+        // console.log(data.videos); //after sorting
+        //display videos according to the descending order of views
+        displayVideos(data.videos);
+    }catch(error){
+        console.log(error);
+    }
+};
 
 const displayDetails = (video) => {
     console.log(video);
